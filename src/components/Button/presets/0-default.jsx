@@ -5,6 +5,6 @@ export default (
   <Button
     uxpId="button"
     disabled={false}
-    label="Button">
+    title="Merge">
   </Button>
 );

@@ -8,8 +8,11 @@ module.exports = {
     publicPath: "/"
   },
   resolve: {
+    alias: {
+      'react-native': 'react-native-web',
+    },
     modules: [__dirname, "node_modules"],
-    extensions: ["*", ".js", ".jsx"]
+    extensions: [".web.js", "*", ".js", ".jsx"]
   },
   devtool: "source-map",
   module: {
