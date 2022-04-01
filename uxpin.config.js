@@ -2,9 +2,10 @@ module.exports = {
   components: {
     categories: [
       {
-        name: 'General',
+        name: 'Core Components',
         include: [
           'src/components/Button/Button.js',
+          '/src/components/FlatList/FlatList.js',
         ],
       },
     ],
