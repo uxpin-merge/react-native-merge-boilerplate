@@ -2,9 +2,20 @@ module.exports = {
   components: {
     categories: [
       {
-        name: 'Core Components',
+        name: 'Basic Components',
+        include: [
+          'src/components/View/View.js',
+        ],
+      },
+      {
+        name: 'User Interface',
         include: [
           'src/components/Button/Button.js',
+        ],
+      },
+      {
+        name: 'List Views',
+        include: [
           '/src/components/FlatList/FlatList.js',
         ],
       },
