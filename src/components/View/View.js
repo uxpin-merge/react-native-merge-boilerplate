@@ -11,6 +11,12 @@ function View(props) {
 }
 
 View.propTypes = {
+
+  /**
+   * @uxpinignoreprop
+   */
+  children: PropTypes.node,  
+  
   /**
    * Used to locate this view from native classes.
    */

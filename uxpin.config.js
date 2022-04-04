@@ -4,6 +4,7 @@ module.exports = {
       {
         name: 'Basic Components',
         include: [
+          'src/components/Text/Text.js',
           'src/components/View/View.js',
         ],
       },
