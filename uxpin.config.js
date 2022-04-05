@@ -6,6 +6,7 @@ module.exports = {
         include: [
           'src/components/Image/Image.js',
           'src/components/Text/Text.js',
+          'src/components/TextInput/TextInput.js',
           'src/components/View/View.js',
         ],
       },
