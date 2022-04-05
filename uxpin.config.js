@@ -4,6 +4,7 @@ module.exports = {
       {
         name: 'Basic Components',
         include: [
+          'src/components/Image/Image.js',
           'src/components/Text/Text.js',
           'src/components/View/View.js',
         ],
@@ -17,7 +18,7 @@ module.exports = {
       {
         name: 'List Views',
         include: [
-          '/src/components/FlatList/FlatList.js',
+          'src/components/FlatList/FlatList.js',
         ],
       },
     ],
