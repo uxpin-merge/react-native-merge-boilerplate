@@ -15,6 +15,7 @@ module.exports = {
         name: 'User Interface',
         include: [
           'src/components/Button/Button.js',
+          'src/components/Switch/Switch.js',
         ],
       },
       {
