@@ -8,6 +8,7 @@ module.exports = {
           'src/components/Text/Text.js',
           'src/components/TextInput/TextInput.js',
           'src/components/View/View.js',
+          'src/components/ScrollView/ScrollView.js',
         ],
       },
       {

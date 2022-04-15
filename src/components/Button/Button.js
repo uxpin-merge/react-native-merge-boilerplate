@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { Button as ButtonM } from 'react-native';
-
+import View from '../View/View';
 
 /**
  * @uxpindocurl https://reactnative.dev/docs/button
  */
 function Button(props) {
   return (
-    <ButtonM {...props} />
+    <View>
+     <ButtonM {...props} />
+    </View>
   );
 }
 

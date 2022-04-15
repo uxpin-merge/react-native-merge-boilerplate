@@ -1,13 +1,18 @@
 import * as React from 'React';
 import PropTypes from 'prop-types';
-import { FlatList as FLatListM } from 'react-native';
+import { FlatList as FlatListM } from 'react-native';
+import View from '../View/View';
 
 /**
  * @uxpindocurl https://reactnative.dev/docs/flatlist
  */
 
 function FlatList(props) {
-    return <FlatList {...props} />
+    return ( 
+      <View>
+        <FlatListM {...props} />
+      </View>
+    )
 }
 
 FlatList.propTypes = {

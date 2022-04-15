@@ -1,17 +1,9 @@
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { colorVariants } from '../../styles/Colors';
-import { TextInput as TextInputM, StyleSheet } from 'react-native';
-
-const styles = StyleSheet.create({
-    input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      padding: 10,
-    },
-  });
-
+import { TextInput as TextInputM } from 'react-native';
+import { styles } from './styles/styles'
+import View from '../View/View';
 
 /**
  * @uxpinwrappers
@@ -20,10 +12,13 @@ const styles = StyleSheet.create({
 function TextInput(props) {
  const { uxpinRef, ...other } = props;
 
- return <TextInputM {...other}
-         ref={uxpinRef}
-         style={styles.input}
-        />
+ return (
+ <View>
+  <TextInputM {...other}
+    ref={uxpinRef}
+    style={styles.input}/>
+ </View>
+  )
 }
 
 TextInput.propTypes = {
