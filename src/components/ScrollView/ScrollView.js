@@ -289,7 +289,7 @@ ScrollView.propTypes = {
       * 'black', scroll indicator is black. This style is good against a light background.
       * 'white', scroll indicator is white. This style is good against a dark background.
       */
-     indicatorStyle: PropTypes.oneOf('default', 'black', 'white'),
+     indicatorStyle: PropTypes.oneOf(['default', 'black', 'white']),
 
      /** iOS
       * When snapToInterval is set, snapToAlignment will define the relationship of the snapping to the scroll view.
@@ -297,12 +297,12 @@ ScrollView.propTypes = {
       * 'center' will align the snap in the center.
       * 'end' will align the snap at the right (horizontal) or bottom (vertical).
       */
-     snapToAlignment: PropTypes.oneOf('start', 'center', 'end'),
+     snapToAlignment: PropTypes.oneOf(['start', 'center', 'end']),
 
      /** iOS
       * This property specifies how the safe area insets are used to modify the content area of the scroll view. Available on iOS 11 and later.
       */
-     contentInsetAdjustmentBehavior: PropTypes.oneOf('automatic', 'scrollableAxes', 'never', 'always'),
+     contentInsetAdjustmentBehavior: PropTypes.oneOf(['automatic', 'scrollableAxes', 'never', 'always']),
 
      /** Andriod
       * Tag used to log scroll performance on this scroll view. Will force momentum events to be turned on (see sendMomentumEvents). 
@@ -338,7 +338,7 @@ ScrollView.propTypes = {
       * 'always' - Always allow a user to over-scroll this view.
       * 'never' - Never allow a user to over-scroll this view.
       */
-     overScrollMode: PropTypes.oneOf('auto', 'always', 'never'),
+     overScrollMode: PropTypes.oneOf(['auto', 'always', 'never']),
 
      /**
       * A floating-point number that determines how quickly the scroll view decelerates after the user lifts their finger. 
@@ -347,7 +347,7 @@ ScrollView.propTypes = {
       * normal' 0.998 on iOS, 0.985 on Android.
       * 'fast', 0.99 on iOS, 0.9 on Android.
       */
-     decelerationRate: PropTypes.oneOf('fast', 'normal'),
+     decelerationRate: PropTypes.oneOf(['fast', 'normal']),
 
      /**
       * Determines whether the keyboard gets dismissed in response to a drag.
@@ -357,7 +357,7 @@ ScrollView.propTypes = {
       * 'interactive', the keyboard is dismissed interactively with the drag and moves in synchrony with the touch, 
       * dragging upwards cancels the dismissal. On Android this is not supported and it will have the same behavior as 'none'.
       */
-     keyboardDismissMode: PropTypes.oneOf('none', 'on-drag', 'interactive'),
+     keyboardDismissMode: PropTypes.oneOf(['none', 'on-drag', 'interactive']),
 
      /**
       * Determines when the keyboard should stay visible after a tap.
@@ -365,7 +365,7 @@ ScrollView.propTypes = {
       * 'always', the keyboard will not dismiss automatically, and the scroll view will not catch taps, but children of the scroll view can catch taps.
       * 'handled', the keyboard will not dismiss automatically when the tap was handled by children of the scroll view (or captured by an ancestor).
       */
-     keyboardShouldPersistTaps: PropTypes.oneOf('always', 'never', 'handled'),
+     keyboardShouldPersistTaps: PropTypes.oneOf(['always', 'never', 'handled']),
 
      /**
       * Used to manually set the starting scroll offset.

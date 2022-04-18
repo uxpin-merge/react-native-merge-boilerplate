@@ -3,12 +3,18 @@ import PropTypes from 'prop-types';
 import { Switch as SwitchM } from 'react-native';
 import { colorVariants } from '../../styles/Colors';
 
-
 /**
  * @uxpindocurl https://reactnative.dev/docs/switch
  */
 function Switch(props) {
-    return <SwitchM {...props} />
+    const [isEnabled, setIsEnabled] = useState(false);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+    return  <SwitchM 
+                {...props} 
+                onValueChange={toggleSwitch}  
+                value={isEnabled | props.value} 
+            />
 }
 
 Switch.propTypes = {
@@ -19,6 +25,7 @@ Switch.propTypes = {
 
      /**
       * The value of the switch. If true the switch will be turned on. Default value is false.
+      * @uxpinbind onChange 1
       */
      value: PropTypes.bool,
 
