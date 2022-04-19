@@ -28,7 +28,8 @@ module.exports = {
       {
         name: 'Others',
         include: [
-            'src/components/ActivityIndicator/ActivityIndicator.js'
+            'src/components/ActivityIndicator/ActivityIndicator.js',
+            'src/components/ImageBackground/ImageBackground.js'
 
         ],
       },
