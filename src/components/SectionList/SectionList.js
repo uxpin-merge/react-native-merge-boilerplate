@@ -34,13 +34,17 @@ const Item = ({ title }) => (
  * @uxpindocurl https://reactnative.dev/docs/sectionlist
  */
 function SectionList(props) {
-    return <SectionListM 
+    return (
+        {props.sections.map((data, index) => (
+            <SectionListM 
             {...props}
-            keyExtractor={(item, index) => item + index}
+            keyExtractor={(data, index) => data + index}
             renderItem={({ item }) => <Item title={item}
             renderSectionHeader={({ section: { title } }) => (
                 <Text style={styles.header}>{title}</Text>
             )}/>} />
+        ))}
+    )
 }
 
 SectionList.propTypes = {
@@ -165,7 +169,7 @@ SectionList.propTypes = {
     /**
      * The actual data to render, akin to the data prop in FlatList.
      */
-    Section: PropTypes.array,
+    Sections: PropTypes.array,
 
 }
 

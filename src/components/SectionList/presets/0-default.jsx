@@ -23,6 +23,6 @@ const DATA = [
 
 export default (
 <View uxpId="view1">
-    <SectionList uxpId='sectionList1' section={DATA} />
+    <SectionList uxpId='sectionList1' sections={DATA} />
 </View>
 )

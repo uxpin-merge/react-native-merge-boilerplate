@@ -22,7 +22,14 @@ module.exports = {
         name: 'List Views',
         include: [
           'src/components/FlatList/FlatList.js',
-          'src/components/SectionList/SectionList.js',
+          // 'src/components/SectionList/SectionList.js',
+        ],
+      },
+      {
+        name: 'Others',
+        include: [
+            'src/components/ActivityIndicator/ActivityIndicator.js'
+
         ],
       },
     ],
