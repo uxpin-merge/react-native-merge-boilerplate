@@ -1,17 +1,47 @@
-import * as React from 'React';
+import * as React from 'react';
 import PropTypes from 'prop-types';
-import { FlatList as FlatListM } from 'react-native';
+import { FlatList as FlatListM, StatusBar, SafeAreaView, StyleSheet } from 'react-native';
 import View from '../View/View';
+import Text from '../Text/Text';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
+
+const Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
 
 /**
  * @uxpindocurl https://reactnative.dev/docs/flatlist
  */
-
 function FlatList(props) {
-    return ( 
-      <View>
-        <FlatListM {...props} />
-      </View>
+  const renderItem = ({ item }) => (
+    <Item title={item.title} />
+  );
+
+    return (
+      <SafeAreaView style={styles.container}> 
+        <FlatListM
+          {...props}
+          renderItem={renderItem}
+          getItemLayout={(item, index) => { return {length: 33, index, offset: 33 * index} }}
+        />
+      </SafeAreaView>
     )
 }
 
@@ -51,12 +81,12 @@ FlatList.propTypes = {
     /**
      * Rendered when the list is empty. Can be a React Component (e.g. SomeComponent), or a React element (e.g. <SomeComponent />).
      */
-    ListEmptyComponent: PropTypes.element | PropTypes.elementType,
+    ListEmptyComponent: PropTypes.func,
 
     /**
      * Rendered at the bottom of all the items. Can be a React Component (e.g. SomeComponent), or a React element (e.g. <SomeComponent />).
      */
-    ListFooterComponent: PropTypes.element | PropTypes.elementType,
+    ListFooterComponent: PropTypes.func,
 
     /**
      * Styling for internal View for ListFooterComponent.
@@ -66,7 +96,7 @@ FlatList.propTypes = {
     /**
      * Rendered at the top of all the items. Can be a React Component (e.g. SomeComponent), or a React element (e.g. <SomeComponent />).
      */
-    ListHeaderComponent: PropTypes.element | PropTypes.elementType,
+    ListHeaderComponent: PropTypes.func,
 
     /**
      * Styling for internal View for ListHeaderComponent.
@@ -155,6 +185,10 @@ FlatList.propTypes = {
      * Set this when offset is needed for the loading indicator to show correctly.
      */
     progressViewOffset: PropTypes.number,
+}
+
+FlatList.defaultProps = {
+  refreshing: false,
 }
 
 export default FlatList;
