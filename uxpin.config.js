@@ -30,6 +30,7 @@ module.exports = {
         include: [
             'src/components/ActivityIndicator/ActivityIndicator.js',
             'src/components/KeyboardAvoidingView/KeyboardAvoidingView.js',
+            'src/components/Pressable/Pressable.js',
             'src/components/ImageBackground/ImageBackground.js',
             'src/components/Modal/Modal.js',
 

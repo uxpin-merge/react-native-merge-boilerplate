@@ -5,13 +5,20 @@ import Text from '../Text/Text';
 import View from '../View/View';
 
 /**
+ * @uxpinwrappers
+ * SkipContainerWrapper
+ */
+/**
  * @uxpindocurl https://reactnative.dev/docs/modal
  */
 const Modal = (props) => {
     const [modalVisible, setModalVisible] = React.useState(false);
+    const { uxpinRef, ...other } = props;
     return (
         <View style={styles.centeredView}>
         <ModalM
+            {...other}
+            ref={uxpinRef}
             animationType="slide"
             transparent={true}
             visible={modalVisible}
