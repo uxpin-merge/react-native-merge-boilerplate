@@ -1,6 +1,5 @@
 import * as React from 'react';
 import SectionList from '../SectionList';
-import View from '../../View/View';
 
 const DATA = [
     {
@@ -22,7 +21,5 @@ const DATA = [
 ];
 
 export default (
-<View uxpId="view1">
     <SectionList uxpId='sectionList1' sections={DATA} />
-</View>
 )

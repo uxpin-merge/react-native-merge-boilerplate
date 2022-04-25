@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import { SectionList as SectionListM, StyleSheet, StatusBar } from 'react-native';
+import { SectionList as SectionListM, StyleSheet, StatusBar, SafeAreaView } from 'react-native';
 import Text from '../Text/Text';
 import View from '../View/View';
 
@@ -35,15 +35,15 @@ const Item = ({ title }) => (
  */
 function SectionList(props) {
     return (
-        {props.sections.map((data, index) => (
-            <SectionListM 
-            {...props}
-            keyExtractor={(data, index) => data + index}
-            renderItem={({ item }) => <Item title={item}
-            renderSectionHeader={({ section: { title } }) => (
-                <Text style={styles.header}>{title}</Text>
-            )}/>} />
-        ))}
+        <SafeAreaView style={styles.container}>
+            <SectionListM
+                {...props}
+                renderItem={({ item }) => <Item title={item} />}
+                renderSectionHeader={({ section: { title } }) => (
+                    <Text style={styles.header}>{title}</Text>
+        )}
+        />
+        </SafeAreaView>
     )
 }
 
