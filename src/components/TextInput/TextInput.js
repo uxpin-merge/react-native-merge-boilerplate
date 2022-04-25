@@ -3,7 +3,6 @@ import * as React from 'react';
 import { colorVariants } from '../../styles/Colors';
 import { TextInput as TextInputM } from 'react-native';
 import { styles } from './styles/styles'
-import View from '../View/View';
 
 /**
  * @uxpinwrappers
@@ -13,11 +12,9 @@ function TextInput(props) {
  const { uxpinRef, ...other } = props;
 
  return (
- <View>
   <TextInputM {...other}
     ref={uxpinRef}
     style={styles.input}/>
- </View>
   )
 }
 
