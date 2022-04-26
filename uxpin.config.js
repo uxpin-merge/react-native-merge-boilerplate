@@ -31,6 +31,10 @@ module.exports = {
             'src/components/ActivityIndicator/ActivityIndicator.js',
             'src/components/KeyboardAvoidingView/KeyboardAvoidingView.js',
             'src/components/Pressable/Pressable.js',
+            'src/components/RefreshControl/RefreshControl.js',
+            'src/components/StatusBar/StatusBar.js',
+            'src/components/TouchableOpacity/TouchableOpacity.js',
+            'src/components/TouchableWithoutFeedback/TouchableWithoutFeedback.js',
             'src/components/ImageBackground/ImageBackground.js',
             'src/components/Modal/Modal.js',
 
