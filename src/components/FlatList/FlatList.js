@@ -51,7 +51,7 @@ FlatList.propTypes = {
      */
     horizontal: PropTypes.bool,
 
-     /**
+    /**
       * Reverses the direction of scroll. Uses scale transforms of -1.
       */
     inverted: PropTypes.bool,
@@ -64,7 +64,7 @@ FlatList.propTypes = {
     /**
      * This may improve scroll performance for large lists. On Android the default value is true.
      */
-     removeClippedSubviews: PropTypes.bool,
+    removeClippedSubviews: PropTypes.bool,
 
     /**
      * For simplicity, data is a plain array. If you want to use something else, like an immutable list, use the underlying VirtualizedList directly.

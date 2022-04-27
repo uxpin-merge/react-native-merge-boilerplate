@@ -3,6 +3,9 @@ import * as React from 'React';
 import { ActivityIndicator as ActivityIndicatorM } from 'react-native';
 import { colorVariants } from '../../styles/Colors';
 
+/**
+ * @uxpindocurl https://reactnative.dev/docs/activityindicator
+ */
 function ActivityIndicator(props) {
     return <ActivityIndicatorM {...props} />
 }

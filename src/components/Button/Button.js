@@ -1,16 +1,13 @@
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { Button as ButtonM } from 'react-native';
-import View from '../View/View';
 
 /**
  * @uxpindocurl https://reactnative.dev/docs/button
  */
 function Button(props) {
   return (
-    <View>
-     <ButtonM {...props} />
-    </View>
+      <ButtonM {...props} />
   );
 }
 
@@ -85,7 +82,7 @@ Button.propTypes = {
   /**
    * Handler to be called when the user taps the button.
    */
-   onPress: PropTypes.func,
+  onPress: PropTypes.func,
 
   /**
    * Invoked when the user performs the accessibility actions. 

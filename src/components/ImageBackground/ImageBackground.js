@@ -2,6 +2,9 @@ import PropTypes from 'prop-types';
 import * as React from 'React';
 import { ImageBackground as ImageBackgroundM } from 'react-native';
 
+/**
+ * @uxpindocurl https://reactnative.dev/docs/imagebackground
+ */
 function ImageBackground(props) {
     return <ImageBackgroundM {...props}>{props.children}</ImageBackgroundM>
 }
@@ -32,7 +35,7 @@ ImageBackground.propTypes = {
    */
   blurRadius: PropTypes.number,
 
- /** iOS
+  /** iOS
   *  When the image is resized, the corners of the size specified by capInsets will stay a fixed size, 
   * but the center content and borders of the image will be stretched. 
   * This is useful for creating resizable rounded buttons, shadows, and other resizable assets. 
@@ -48,12 +51,12 @@ ImageBackground.propTypes = {
   /**
    * Determines how to resize the image when the frame doesn't match the raw image dimensions. Defaults to cover.
    * cover: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) 
-     of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
+   * of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
    * contain: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) 
-     of the image will be equal to or less than the corresponding dimension of the view (minus padding).
+   * of the image will be equal to or less than the corresponding dimension of the view (minus padding).
    * stretch: Scale width and height independently, This may change the aspect ratio of the src.
    * repeat: Repeat the image to cover the frame of the view. The image will keep its size and aspect ratio, 
-     unless it is larger than the view, in which case it will be scaled down uniformly so that it is contained in the view.
+   * unless it is larger than the view, in which case it will be scaled down uniformly so that it is contained in the view.
    * center: Center the image in the view along both dimensions. If the image is larger than the view, scale it down uniformly so that it is contained in the view.  
    */
   resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch', 'repeat', 'center']),
