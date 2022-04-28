@@ -4,51 +4,6 @@ import { Alert, Modal as ModalM, Pressable, StyleSheet } from "react-native";
 import Text from '../Text/Text';
 import View from '../View/View';
 
-/**
- * @uxpinwrappers
- * SkipContainerWrapper
- */
-/**
- * @uxpindocurl https://reactnative.dev/docs/modal
- */
-const Modal = (props) => {
-    const [modalVisible, setModalVisible] = React.useState(false);
-    const { uxpinRef, ...other } = props;
-    return (
-        <View style={styles.centeredView}>
-        <ModalM
-            {...other}
-            ref={uxpinRef}
-            animationType="slide"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-            setModalVisible(!modalVisible);
-            }}
-        >
-            <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-                <Text style={styles.modalText}>Hello World!</Text>
-                <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-                >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-                </Pressable>
-            </View>
-            </View>
-        </ModalM>
-        <Pressable
-            style={[styles.button, styles.buttonOpen]}
-            onPress={() => setModalVisible(true)}
-        >
-            <Text style={styles.textStyle}>Show Modal</Text>
-        </Pressable>
-        </View>
-    );
-};
-
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
@@ -92,6 +47,50 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 });
+
+/**
+ * @uxpinwrappers
+ * SkipContainerWrapper
+ */
+/**
+ * @uxpindocurl https://reactnative.dev/docs/modal
+ */
+const Modal = (props) => {
+    const [modalVisible, setModalVisible] = React.useState(false);
+    const { uxpinRef, ...other } = props;
+    return (
+        <View style={styles.centeredView}>
+        <ModalM
+            {...other}
+            ref={uxpinRef}
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+            setModalVisible(!modalVisible);
+            }}
+        >
+            <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+                <Text style={styles.modalText}>Hello World!</Text>
+                <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+                >
+                <Text style={styles.textStyle}>Hide Modal</Text>
+                </Pressable>
+            </View>
+            </View>
+        </ModalM>
+        <Pressable
+            style={[styles.button, styles.buttonOpen]}
+            onPress={() => setModalVisible(true)}
+        >
+            <Text style={styles.textStyle}>Show Modal</Text>
+        </Pressable>
+        </View>
+    );
+};
 
 Modal.propTypes = {
     /**

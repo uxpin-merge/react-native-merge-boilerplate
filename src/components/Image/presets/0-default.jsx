@@ -6,6 +6,10 @@ export default (
       uxpId="image-1"
       source={{
           uri: 'https://reactnative.dev/img/tiny_logo.png',
+      }}
+      style={{
+        width: 50,
+        height: 50,
       }} 
     />
 )

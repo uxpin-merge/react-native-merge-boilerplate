@@ -1,15 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Image as ImageM, StyleSheet } from 'react-native';
-
-
-const styles = StyleSheet.create({
-    logo: {
-      width: 50,
-      height: 50,
-    },
-  });
-
+import { Image as ImageM } from 'react-native';
 
 /**
  * @uxpindocurl https://reactnative.dev/docs/image
@@ -17,7 +8,6 @@ const styles = StyleSheet.create({
 function Image(props) {
     return ( 
       <ImageM {...props}
-        style={styles.logo} 
       /> 
     )
 }

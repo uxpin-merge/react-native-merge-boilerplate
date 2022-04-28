@@ -8,7 +8,7 @@ module.exports = {
           'src/components/Text/Text.js',
           'src/components/TextInput/TextInput.js',
           'src/components/View/View.js',
-          'src/components/ScrollView/ScrollView.js',
+          // 'src/components/ScrollView/ScrollView.js',
         ],
       },
       {
@@ -38,7 +38,13 @@ module.exports = {
             'src/components/TouchableWithoutFeedback/TouchableWithoutFeedback.js',
             'src/components/ImageBackground/ImageBackground.js',
             'src/components/Modal/Modal.js',
-            'src/components/VirtualizedList/VirtualizedList.js',
+            // 'src/components/VirtualizedList/VirtualizedList.js',
+        ],
+      },
+      {
+        name: 'iOS Components',
+        include: [
+          'src/components/SafeAreaView/SafeAreaView.js',
         ],
       },
     ],

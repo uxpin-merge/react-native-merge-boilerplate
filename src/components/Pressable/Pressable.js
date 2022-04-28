@@ -4,6 +4,30 @@ import { Pressable as PressableM, StyleSheet } from 'react-native';
 import Text from '../Text/Text';
 import View from '../View/View';
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  text: {
+    fontSize: 16
+  },
+  wrapperCustom: {
+    borderRadius: 8,
+    padding: 6
+  },
+  logBox: {
+    padding: 20,
+    margin: 10,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: '#f0f0f0',
+    backgroundColor: '#f9f9f9'
+  }
+});
+
+/**
+ * @uxpindocurl https://reactnative.dev/docs/pressable
+ */
 const Pressable = () => {
     const [timesPressed, setTimesPressed] = useState(0);
 
@@ -40,27 +64,6 @@ const Pressable = () => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-  },
-  text: {
-    fontSize: 16
-  },
-  wrapperCustom: {
-    borderRadius: 8,
-    padding: 6
-  },
-  logBox: {
-    padding: 20,
-    margin: 10,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: '#f0f0f0',
-    backgroundColor: '#f9f9f9'
-  }
-});
 
 Pressable.propTypes = {
   /**

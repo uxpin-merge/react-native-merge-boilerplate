@@ -2,8 +2,10 @@ import PropTypes from 'prop-types';
 import * as React from 'react';
 import { colorVariants } from '../../styles/Colors';
 import { TextInput as TextInputM } from 'react-native';
-import { styles } from './styles/styles'
 
+/**
+ * @uxpindocurl https://reactnative.dev/docs/textinput
+ */
 /**
  * @uxpinwrappers
  * SkipContainerWrapper
@@ -14,7 +16,7 @@ function TextInput(props) {
  return (
   <TextInputM {...other}
     ref={uxpinRef}
-    style={styles.input}/>
+  />
   )
 }
 
