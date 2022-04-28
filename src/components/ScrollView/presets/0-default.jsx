@@ -7,6 +7,7 @@ export default (
     <ScrollView 
       uxpId="scrollview"
       style={{
+        height: 300,
          backgroundColor: 'pink',
          marginHorizontal: 20,
        }}>
