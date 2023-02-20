@@ -39,7 +39,7 @@
     ]
   },
   "devDependencies": {
-    "@uxpin/merge-cli": "^2.7.10",
+    "@uxpin/merge-cli": "^3.0.0",
     "prop-types": "^15.8.1"
   }
 }
