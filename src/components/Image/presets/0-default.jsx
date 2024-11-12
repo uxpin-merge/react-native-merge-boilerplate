@@ -1,15 +1,13 @@
-import * as React from 'react';
-import Image from '../Image';
+import * as React from "react";
+import Image from "../Image";
 
 export default (
-    <Image 
-      uxpId="image-1"
-      source={{
-          uri: 'https://reactnative.dev/img/tiny_logo.png',
-      }}
-      style={{
-        width: 50,
-        height: 50,
-      }} 
-    />
-)
+  <Image
+    uxpId="image-1"
+    source="https://reactnative.dev/img/tiny_logo.png"
+    style={{
+      width: 50,
+      height: 50,
+    }}
+  />
+);
