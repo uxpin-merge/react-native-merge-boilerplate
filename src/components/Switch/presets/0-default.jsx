@@ -1,9 +1,4 @@
-import * as React from 'react';
-import Switch from '../Switch';
-import View from '../../View/View';
+import * as React from "react";
+import Switch from "../Switch";
 
-export default (
-    <View uxpId="view">
-      <Switch uxpId="switch" />
-    </View>
-)
+export default <Switch uxpId="switch" />;

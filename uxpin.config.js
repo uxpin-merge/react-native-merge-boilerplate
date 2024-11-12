@@ -50,4 +50,5 @@ module.exports = {
     webpackConfig: "uxpin.webpack.config.js",
   },
   name: "react native merge",
+  settings: { useUXPinProps: true },
 };

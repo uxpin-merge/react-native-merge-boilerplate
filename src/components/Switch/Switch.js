@@ -1,22 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Switch as SwitchM } from "react-native";
-import { colorVariants } from "../../styles/Colors";
 
 /**
  * @uxpindocurl https://reactnative.dev/docs/switch
  */
 function Switch(props) {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
-
-  return (
-    <SwitchM
-      {...props}
-      onValueChange={toggleSwitch}
-      value={isEnabled | props.value}
-    />
-  );
+  return <SwitchM {...props} />;
 }
 
 Switch.propTypes = {
@@ -27,7 +17,7 @@ Switch.propTypes = {
 
   /**
    * The value of the switch. If true the switch will be turned on. Default value is false.
-   * @uxpinbind onChange 1
+   * @uxpinbind onValueChange 0
    */
   value: PropTypes.bool,
 
@@ -49,8 +39,9 @@ Switch.propTypes = {
    * iOS: When the switch value is false, the track shrinks into the border.
    * If you want to change the color of the background exposed by the shrunken track, https://reactnative.dev/docs/switch#ios_backgroundColor.
    * object: { false: color, true: color }
+   * @uxpincontroltype color
    */
-  trackColor: PropTypes.object,
+  trackColor: PropTypes.string,
 
   /**
    * Invoked when the user tries to change the value of the switch. Receives the change event as an argument.

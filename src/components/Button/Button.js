@@ -1,99 +1,101 @@
-import PropTypes from 'prop-types';
-import * as React from 'react';
-import { Button as ButtonM } from 'react-native';
+import PropTypes from "prop-types";
+import * as React from "react";
+import { Button as ButtonM } from "react-native";
 
 /**
  * @uxpindocurl https://reactnative.dev/docs/button
+ * @uxpindescription
  */
 function Button(props) {
-  return (
-      <ButtonM {...props} />
-  );
+  return <ButtonM {...props} />;
 }
 
 Button.propTypes = {
   /**
-   * Text to display inside the button. On Android the given title will be converted to the uppercased form.
+   * Handler to be called when the user taps the button.
    */
-  title: PropTypes.string,
+  onPress: PropTypes.func.isRequired,
 
   /**
-   * Used to locate this view in end-to-end tests.
+   * Text to display inside the button.
    */
-  testID: PropTypes.string,
+  title: PropTypes.string.isRequired,
 
   /**
-   * If true, disable all interactions for this component.
-   */
-  disabled: PropTypes.bool,
-
-  /**
-   * If true, doesn't play system sound on touch.
-   */
-  touchSoundDisabled: PropTypes.bool, 
-
-  /**
-   * Designates the next view to receive focus when the user navigates down. 
-   * see https://developer.android.com/reference/android/view/View#attr_android:nextFocusDown
-   */
-  nextFocusDown: PropTypes.number,
-
-  /**
-   * Designates the next view to receive focus when the user navigates forward. 
-   * See https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward
-   */
-  nextFocusForward: PropTypes.number,
-
-  /**
-   * Designates the next view to receive focus when the user navigates left.
-   * See https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft
-   */
-  nextFocusLeft: PropTypes.number,
-
-  /**
-   * Designates the next view to receive focus when the user navigates right. 
-   * See https://developer.android.com/reference/android/view/View#attr_android:nextFocusRight
-   */
-  nextFocusRight: PropTypes.number,
-
-  /**
-   * Designates the next view to receive focus when the user navigates up.
-   * See https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp
-   */
-  nextFocusUp: PropTypes.number,
-
-  /**
-   * TV preferred focus.
-   */
-  hasTVPreferredFocus: PropTypes.bool,
-
-  /**
-   * Text to display for blindness accessibility features.
+   * Text to display for accessibility features.
    */
   accessibilityLabel: PropTypes.string,
 
   /**
-   * Accessibility actions allow an assistive technology to programmatically invoke the actions of a component. 
-   * The accessibilityActions property should contain a list of action objects. 
-   * Each action object should contain the field name and label.
+   * Language for screen reader, following BCP 47 specification (iOS only).
    */
-  accessibilityActions: PropTypes.array,
+  accessibilityLanguage: PropTypes.string,
 
   /**
-   * Handler to be called when the user taps the button.
+   * Accessibility actions for assistive technology.
    */
-  onPress: PropTypes.func,
+  accessibilityActions: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      label: PropTypes.string,
+    })
+  ),
 
   /**
-   * Invoked when the user performs the accessibility actions. 
-   * The only argument to this function is an event containing the name of the action to perform.
+   * Invoked when an accessibility action is performed.
    */
   onAccessibilityAction: PropTypes.func,
-  
+
   /**
-   * Color of the text (iOS), or background color of the button (Android).
+   * Color of the text (iOS) or background color of the button (Android).
+   * @uxpincontroltype color
    */
-  color: PropTypes.oneOf(['royalblue', 'dodgerblue'])
+  color: PropTypes.string,
+
+  /**
+   * Disables all interactions for this component.
+   */
+  disabled: PropTypes.bool,
+
+  /**
+   * Preferred focus on TV.
+   */
+  hasTVPreferredFocus: PropTypes.bool,
+
+  /**
+   * Sets the next view to receive focus when navigating down on Android TV.
+   */
+  nextFocusDown: PropTypes.number,
+
+  /**
+   * Sets the next view to receive focus when navigating forward on Android TV.
+   */
+  nextFocusForward: PropTypes.number,
+
+  /**
+   * Sets the next view to receive focus when navigating left on Android TV.
+   */
+  nextFocusLeft: PropTypes.number,
+
+  /**
+   * Sets the next view to receive focus when navigating right on Android TV.
+   */
+  nextFocusRight: PropTypes.number,
+
+  /**
+   * Sets the next view to receive focus when navigating up on Android TV.
+   */
+  nextFocusUp: PropTypes.number,
+
+  /**
+   * Identifier for end-to-end tests.
+   */
+  testID: PropTypes.string,
+
+  /**
+   * Disables touch sound on Android.
+   */
+  touchSoundDisabled: PropTypes.bool,
 };
 
 export { Button as default };

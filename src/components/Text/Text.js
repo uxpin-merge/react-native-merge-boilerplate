@@ -4,6 +4,7 @@ import { Text as TextM } from "react-native";
 
 /**
  * @uxpindocurl https://reactnative.dev/docs/text
+ * @uxpindescription A React component for displaying text.
  */
 function Text(props) {
   return <TextM {...props}>{props.children}</TextM>;
@@ -11,222 +12,322 @@ function Text(props) {
 
 Text.propTypes = {
   /**
-   * Used to locate this view from native code.
-   */
-  nativeID: PropTypes.string,
-  /**
-   *
+   * The text content
    */
   children: PropTypes.node,
 
   /**
-   * When set to true, indicates that the view is an accessibility element.
-   */
-  accessible: PropTypes.bool,
-
-  /**
-   * Lets the user select text, to use the native copy and paste functionality. */
-  selectable: PropTypes.bool,
-
-  /**
-   * Specifies whether fonts should be scaled down automatically to fit given style constraints.
-   */
-  adjustsFontSizeToFit: PropTypes.bool,
-
-  /**
-   * Specifies whether fonts should scale to respect Text Size accessibility settings.
-   */
-  allowFontScaling: PropTypes.bool,
-
-  /**
-   * An accessibility hint helps users understand what will happen
-   * when they perform an action on the accessibility element when that result is not clear from the accessibility label.
+   * Provides an accessibility hint to describe what happens when an element is activated.
    */
   accessibilityHint: PropTypes.string,
 
   /**
-   * Overrides the text that's read by the screen reader when the user interacts with the element.
-   * By default, the label is constructed by traversing all the children and accumulating all the Text nodes separated by space.
+   * Specifies the language for the screen reader, following BCP 47.
+   */
+  accessibilityLanguage: PropTypes.string,
+
+  /**
+   * Overrides the text read by the screen reader for this element.
    */
   accessibilityLabel: PropTypes.string,
 
   /**
-   * Tells the screen reader to treat the currently focused on element as having a specific role.
-   * On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality
-   * as if the trait was set to both 'image' and 'button'. See the https://reactnative.dev/docs/accessibility#accessibilitytraits-ios for more information.
-   * On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
-   * https://reactnative.dev/docs/accessibility#accessibilityrole
-   * @uxpinignoreprop
+   * Declares the role of this element to assistive technologies.
    */
-  accessibilityRole: PropTypes.element,
+  accessibilityRole: PropTypes.oneOf([
+    "none",
+    "button",
+    "link",
+    "image",
+    "text",
+    "search",
+    "adjustable",
+    "header",
+    "summary",
+    "alert",
+    "checkbox",
+    "combobox",
+    "menu",
+    "menubar",
+    "menuitem",
+    "progressbar",
+    "radio",
+    "radiogroup",
+    "scrollbar",
+    "switch",
+    "tab",
+    "tablist",
+    "timer",
+    "toolbar",
+    "grid",
+  ]),
 
   /**
-   * Tells the screen reader to treat the currently focused on element as being in a specific state.
-   * You can provide one state, no state, or multiple states. The states must be passed in through an object. Ex: {selected: true, disabled: true}.
-   * https://reactnative.dev/docs/accessibility#accessibilitystate
+   * Defines the accessibility state of the component.
    */
-  accessibilityState: PropTypes.object,
+  accessibilityState: PropTypes.shape({
+    disabled: PropTypes.bool,
+    selected: PropTypes.bool,
+    checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(["mixed"])]),
+    busy: PropTypes.bool,
+    expanded: PropTypes.bool,
+  }),
 
   /**
-   * Accessibility actions allow an assistive technology to programmatically invoke the actions of a component.
-   * The accessibilityActions property should contain a list of action objects. Each action object should contain the field name and label.
+   * List of actions that assistive technology can trigger.
    */
-  accessibilityActions: PropTypes.array,
+  accessibilityActions: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      label: PropTypes.string,
+    })
+  ),
 
   /**
-   * Invoked when the user performs the accessibility actions. The only argument to this function is an event containing the name of the action to perform.
+   * Callback for accessibility actions.
    */
   onAccessibilityAction: PropTypes.func,
 
-  /** Andriod
-   * Specifies the disabled state of the text view for testing purposes.
+  /**
+   * Indicates the view is accessible by assistive technology.
    */
-  disabled: PropTypes.bool,
+  accessible: PropTypes.bool,
 
-  /** Andriod
-   * Sets the frequency of automatic hyphenation to use when determining word breaks on Android API Level 23+.
+  /**
+   * Adjusts font size to fit within bounds if true.
+   */
+  adjustsFontSizeToFit: PropTypes.bool,
+
+  /**
+   * Allows font scaling based on device settings.
+   */
+  allowFontScaling: PropTypes.bool,
+
+  /**
+   * Hyphenation frequency for text on Android.
    */
   android_hyphenationFrequency: PropTypes.oneOf(["none", "normal", "full"]),
 
-  /** Andriod
-   * The highlight color of the text. */
-  selectionColor: PropTypes.string,
+  /**
+   * Indicates if element is busy for ARIA support.
+   */
+  ariaBusy: PropTypes.bool,
 
   /**
-   * Set text break strategy on Android API Level 23+, possible values are simple, highQuality, balanced.
+   * Describes the checkable state of an element.
    */
-  textBreakStrategy: PropTypes.oneOf(["simple", "highQuality", "balanced"]),
-
-  /** iOS
-   * Specifies the smallest possible scale a font can reach when adjustsFontSizeToFit is enabled. (values 0.01-1.0).
-   */
-  minimumFontScale: PropTypes.number,
-
-  /** iOS
-   * When true, no visual change is made when text is pressed down.
-   * By default, a gray oval highlights the text on press down. */
-  suppressHighlighting: PropTypes.bool,
+  ariaChecked: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf(["mixed"]),
+  ]),
 
   /**
-   * Determines the types of data converted to clickable URLs in the text element. By default, no data types are detected.
+   * ARIA attribute to indicate an element is disabled.
+   */
+  ariaDisabled: PropTypes.bool,
+
+  /**
+   * ARIA attribute indicating whether the element is expanded.
+   */
+  ariaExpanded: PropTypes.bool,
+
+  /**
+   * ARIA label for the element.
+   */
+  ariaLabel: PropTypes.string,
+
+  /**
+   * ARIA selected state for selectable elements.
+   */
+  ariaSelected: PropTypes.bool,
+
+  /**
+   * Data detector type to recognize certain data patterns.
    */
   dataDetectorType: PropTypes.oneOf([
-    "none",
     "phoneNumber",
     "link",
     "email",
+    "none",
     "all",
   ]),
 
   /**
-   * When numberOfLines is set, this prop defines how the text will be truncated. numberOfLines must be set in conjunction with this prop.
-   * head - The line is displayed so that the end fits in the container and the missing text at the beginning of the line is indicated by an ellipsis glyph. e.g., "...wxyz"
-   * middle - The line is displayed so that the beginning and end fit in the container and the missing text in the middle is indicated by an ellipsis glyph. "ab...yz"
-   * tail - The line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. e.g., "abcd..."
-   * clip - Lines are not drawn past the edge of the text container.
+   * Specifies if text element is disabled.
    */
-  ellipsizeMode: PropTypes.oneOf(["head", "middle", "tall", "clip"]),
+  disabled: PropTypes.bool,
 
   /**
-   * Specifies the largest possible scale a font can reach when allowFontScaling is enabled. Possible values:
-   * null/undefined: inherit from the parent node or the global default (0)
-   * 0: no max, ignore parent/global default
-   * >= 1: sets the maxFontSizeMultiplier of this node to this value
+   * Dynamic type ramp to apply on iOS.
+   */
+  dynamicTypeRamp: PropTypes.oneOf([
+    "caption2",
+    "caption1",
+    "footnote",
+    "subheadline",
+    "callout",
+    "body",
+    "headline",
+    "title3",
+    "title2",
+    "title1",
+    "largeTitle",
+  ]),
+
+  /**
+   * Text truncation mode when numberOfLines is set.
+   */
+  ellipsizeMode: PropTypes.oneOf(["head", "middle", "tail", "clip"]),
+
+  /**
+   * ID for native code reference.
+   */
+  id: PropTypes.string,
+
+  /**
+   * Maximum font scale factor.
    */
   maxFontSizeMultiplier: PropTypes.number,
 
   /**
-   * Used to truncate the text with an ellipsis after computing the text layout,
-   * including line wrapping, such that the total number of lines does not exceed this number.
-   * Setting this property to 0 will result in unsetting this value, which means that no lines restriction will be applied.
+   * Minimum font scale factor when adjustsFontSizeToFit is enabled.
+   */
+  minimumFontScale: PropTypes.number,
+
+  /**
+   * ID for locating view in native code.
+   */
+  nativeID: PropTypes.string,
+
+  /**
+   * Limits the number of text lines displayed.
    */
   numberOfLines: PropTypes.number,
 
   /**
-   * Invoked on mount and on layout changes.
-   * ({ nativeEvent: LayoutEvent }) => void
+   * Called on layout change.
    */
   onLayout: PropTypes.func,
 
   /**
-   * This function is called on long press.
-   * ({ nativeEvent: PressEvent }) => void
+   * Triggered on a long press gesture.
    */
   onLongPress: PropTypes.func,
 
   /**
-   * Does this view want to "claim" touch responsiveness? This is called for every touch move on the View when it is not the responder.
-   * ({ nativeEvent: PressEvent }) => boolean
+   * Determines if the view should respond to a move gesture.
    */
   onMoveShouldSetResponder: PropTypes.func,
 
   /**
-   * This function is called on press.
-   * ({ nativeEvent: PressEvent }) => void
+   * Triggered when element is pressed.
    */
   onPress: PropTypes.func,
 
   /**
-   * The View is now responding to touch events. This is the time to highlight and show the user what is happening.
-   * ({ nativeEvent: PressEvent }) => void
+   * Triggered when the press is initiated.
+   */
+  onPressIn: PropTypes.func,
+
+  /**
+   * Triggered when the press is released.
+   */
+  onPressOut: PropTypes.func,
+
+  /**
+   * Triggers when view becomes the responder for touch events.
    */
   onResponderGrant: PropTypes.func,
 
   /**
-   * The user is moving their finger.
+   * Triggers on touch move gesture.
    */
   onResponderMove: PropTypes.func,
 
   /**
-   * Fired at the end of the touch.
-   * */
+   * Triggered when touch interaction ends.
+   */
   onResponderRelease: PropTypes.func,
 
   /**
-   * The responder has been taken from the View.
-   * Might be taken by other views after a call to onResponderTerminationRequest,
-   * or might be taken by the OS without asking (e.g., happens with control center/ notification center on iOS)
-   * ({ nativeEvent: PressEvent }) => void
+   * Triggered if responder is taken by another element.
    */
   onResponderTerminate: PropTypes.func,
 
   /**
-   * Some other View wants to become a responder and is asking this View to release its responder.
-   * Returning true allows its release.
-   * ({ nativeEvent: PressEvent }) => boolean
+   * Determines if responder should terminate.
    */
   onResponderTerminationRequest: PropTypes.func,
 
   /**
-   * If a parent View wants to prevent a child View from becoming a responder on a touch start,
-   * it should have this handler which returns true.
-   * ({ nativeEvent: PressEvent }) => boolean
+   * Prevents child views from becoming responder on touch start.
    */
   onStartShouldSetResponderCapture: PropTypes.func,
 
   /**
-   * Invoked on Text layout change.
-   * (TextLayoutEvent) => mixed
+   * Callback when text layout changes.
    */
   onTextLayout: PropTypes.func,
 
   /**
-   * When the scroll view is disabled, this defines how far your touch may move off of the button,
-   * before deactivating the button. Once deactivated,
-   * try moving it back and you'll see that the button is once again reactivated!
-   * Move it back and forth several times while the scroll view is disabled.
-   * Ensure you pass in a constant to reduce memory allocations. */
-  pressRetentionOffset: PropTypes.object,
+   * Adjusts press offset area.
+   */
+  pressRetentionOffset: PropTypes.oneOfType([
+    PropTypes.shape({
+      top: PropTypes.number,
+      left: PropTypes.number,
+      bottom: PropTypes.number,
+      right: PropTypes.number,
+    }),
+    PropTypes.number,
+  ]),
+
   /**
-   * Style override
+   * Defines role of the element, overriding accessibilityRole.
+   */
+  role: PropTypes.string,
+
+  /**
+   * Enables text selection.
+   */
+  selectable: PropTypes.bool,
+
+  /**
+   * Highlight color of selected text on Android.
+   * @uxpincontroltype color
+   */
+  selectionColor: PropTypes.string,
+
+  /**
+   * Style for text and view.
    * @uxpincontroltype css
    */
   style: PropTypes.object,
 
   /**
-   * Used to locate this view in end-to-end tests.
+   * Suppresses highlighting when text is pressed (iOS only).
+   */
+  suppressHighlighting: PropTypes.bool,
+
+  /**
+   * Identifier for end-to-end tests.
    */
   testID: PropTypes.string,
+
+  /**
+   * Text break strategy for Android.
+   */
+  textBreakStrategy: PropTypes.oneOf(["simple", "highQuality", "balanced"]),
+
+  /**
+   * Line break strategy for iOS 14+.
+   */
+  lineBreakStrategyIOS: PropTypes.oneOf([
+    "none",
+    "standard",
+    "hangul-word",
+    "push-out",
+  ]),
 };
 
 export default Text;
