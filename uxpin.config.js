@@ -18,32 +18,13 @@ module.exports = {
           "src/components/Switch/Switch.js",
         ],
       },
-      {
-        name: "List Views",
-        include: [
-          "src/components/FlatList/FlatList.js",
-          "src/components/SectionList/SectionList.js",
-        ],
-      },
+
       {
         name: "Others",
         include: [
           "src/components/ActivityIndicator/ActivityIndicator.js",
-          "src/components/KeyboardAvoidingView/KeyboardAvoidingView.js",
-          "src/components/Pressable/Pressable.js",
-          // 'src/components/RefreshControl/RefreshControl.js',
-          "src/components/StatusBar/StatusBar.js",
-          "src/components/TouchableHighlight/TouchableHighlight.js",
-          "src/components/TouchableOpacity/TouchableOpacity.js",
-          "src/components/TouchableWithoutFeedback/TouchableWithoutFeedback.js",
           "src/components/ImageBackground/ImageBackground.js",
-          "src/components/Modal/Modal.js",
-          // 'src/components/VirtualizedList/VirtualizedList.js',
         ],
-      },
-      {
-        name: "iOS Components",
-        include: ["src/components/SafeAreaView/SafeAreaView.js"],
       },
     ],
     wrapper: "src/components/UXPinWrapper/UXPinWrapper.js",
